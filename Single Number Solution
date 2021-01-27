@@ -1,0 +1,14 @@
+class Solution:
+    def __init__(self):
+        self.dict = {}
+
+    def singleNumber(self, numbers):
+        for num in numbers:
+            if num in self.dict:
+                self.dict[num] += 1
+            else:
+                self.dict[num] = 1
+
+        new_collection = {self.dict[key]: key for key in self.dict}
+        del self.dict
+        return new_collection[sorted(new_collection)[0]]
