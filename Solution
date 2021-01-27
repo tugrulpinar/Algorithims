@@ -1,0 +1,24 @@
+class Solution:
+    def plusOne(self, numbers):
+        if numbers[-1] == 9:
+            counter = 0
+
+            for x in range(1, len(numbers) + 1):
+                zeroed = False
+                if numbers[-x] == 9:
+                    counter += 1
+                    numbers[-x] = 0
+                    zeroed = True
+                elif not zeroed:
+                    break
+
+            print(counter)
+            if counter == len(numbers):
+                numbers.insert(0, 1)
+            else:
+                numbers[-counter-1] += 1
+
+        else:
+            numbers[-1] += 1
+
+        return numbers
