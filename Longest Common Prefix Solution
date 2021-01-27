@@ -1,0 +1,19 @@
+class Solution(object):
+    def longestCommonPrefix(self, elements):
+        if len(elements) < 1:
+            return ""
+
+        my_list = [len(item) for item in elements]
+        minimum = int(min(my_list))
+        base = minimum
+
+        while base >= 1:
+            prefix = {item[:base] for item in elements}
+
+            if len(prefix) == 1:
+                return elements[0][:base]
+            else:
+                del prefix
+                base = base - 1
+                continue
+        return ""
